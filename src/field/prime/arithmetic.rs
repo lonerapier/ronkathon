@@ -1,9 +1,9 @@
 use super::*;
 
 impl<const P: usize> const Add for PrimeField<P> {
-  type Output = Self;
+  default type Output = Self;
 
-  fn add(self, rhs: Self) -> Self { Self { value: (self.value + rhs.value) % Self::ORDER } }
+  default fn add(self, rhs: Self) -> Self { Self { value: (self.value + rhs.value) % Self::ORDER } }
 }
 
 impl<const P: usize> AddAssign for PrimeField<P> {

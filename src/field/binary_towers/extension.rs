@@ -321,7 +321,7 @@ fn add_vec(lhs: &[BinaryField], rhs: &[BinaryField]) -> Vec<BinaryField> {
 pub(super) fn to_bool_vec(mut num: u64, length: usize) -> Vec<BinaryField> {
   let mut result = Vec::new();
   while num > 0 {
-    result.push(BinaryField::new(((num & 1) != 0) as u8));
+    result.push(BinaryField::new(((num & 1) != 0) as usize));
     num >>= 1;
   }
   result.extend(std::iter::repeat(BinaryField::new(0)).take(length - result.len()));
